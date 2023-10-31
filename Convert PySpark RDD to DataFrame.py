@@ -22,6 +22,16 @@ rdd.collect()  #Out[2]: [('Finance', 10), ('Marketing', 20), ('Sales', 30), ('IT
 # COMMAND ----------
 
 # MAGIC %md
+# MAGIC (1) Spark Jobs     
+# MAGIC Job 68 View(Stages: 1/1)    
+# MAGIC Stage 114: 4/4       
+# MAGIC ParallelCollectionRDD[315] at readRDDFromInputStream at PythonRDD.scala:439   
+# MAGIC [('Finance', 10), ('Marketing', 20), ('Sales', 30), ('IT', 40)]    
+# MAGIC Command took 0.19 seconds -- by c0768482@mylambton.ca at 10/27/2023, 3:36:44 PM on Showry Yaddanapalli's Cluster
+
+# COMMAND ----------
+
+# MAGIC %md
 # MAGIC Convert PySpark RDD to DataFrame
 # MAGIC Converting PySpark RDD to DataFrame can be done using toDF(), createDataFrame(). In this section, I will explain these two methods.
 # MAGIC
@@ -34,6 +44,30 @@ rdd.collect()  #Out[2]: [('Finance', 10), ('Marketing', 20), ('Sales', 30), ('IT
 df = rdd.toDF()
 df.printSchema()
 df.show(truncate=False)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC (3) Spark Jobs      
+# MAGIC Job 69 View(Stages: 1/1)    
+# MAGIC Job 70 View(Stages: 1/1)   
+# MAGIC Job 71 View(Stages: 1/1)   
+# MAGIC df:pyspark.sql.dataframe.DataFrame   
+# MAGIC _1:string   
+# MAGIC _2:long   
+# MAGIC root  
+# MAGIC  |-- _1: string (nullable = true)    
+# MAGIC  |-- _2: long (nullable = true)    
+# MAGIC
+# MAGIC +---------+---+   
+# MAGIC |_1       |_2 |    
+# MAGIC +---------+---+   
+# MAGIC |Finance  |10 |   
+# MAGIC |Marketing|20 |   
+# MAGIC |Sales    |30 |   
+# MAGIC |IT       |40 |   
+# MAGIC +---------+---+
+# MAGIC
 
 # COMMAND ----------
 

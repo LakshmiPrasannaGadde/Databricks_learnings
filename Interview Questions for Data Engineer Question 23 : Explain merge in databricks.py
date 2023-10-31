@@ -39,6 +39,24 @@
 # COMMAND ----------
 
 # MAGIC %sql
+# MAGIC /* merge command with update and insert using * statements*/
+# MAGIC merge into sales
+# MAGIC using newsales
+# MAGIC on sales.OrderId==newsales.OrderId
+# MAGIC when Matched
+# MAGIC then update set *
+# MAGIC when not matched
+# MAGIC then insert *
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC just re-ran Cmd 2 before running Cmd6 to revert the changes done made by merge command and test Cmd6 merge statement. in this case,  no of updated and inserted rows should be same. 
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC /* merge command with detailed update and insert statements*/
 # MAGIC merge into sales
 # MAGIC using newsales
 # MAGIC on sales.OrderId==newsales.OrderId
